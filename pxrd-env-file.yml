@@ -1,0 +1,11 @@
+name: pxrd-env
+channels:
+  - conda-forge
+dependencies:
+  - python = 3.12.5
+  - matplotlib = 3.9.2
+  - numpy = 2.0.1
+  - xrayutilities = 1.7.8
+  - pyqt = 5.15.9
+  - qtawesome = 1.3.1
+ 
