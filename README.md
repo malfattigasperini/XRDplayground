@@ -1,3 +1,4 @@
 # XRDplayground
-XRD Playground
-This software calculates the Powder X-Ray Diffraction (pXRD) of a simple structure defined by the user. By using sliders to control the lattice parameters and angles between axes, the diffraction pattern changes instantly, so the user can see the effect of each parameter into the pattern. It has also the possibility to include up to 10 atoms in the unit cell, controlling their type and position. It is a nice program to use for teaching pXRD! Feel fre to use it, and we are pleased if you cite it (we are going to publish soon!!) :D 
+This software calculates the Powder X-Ray Diffraction (pXRD) pattern of a simple structure defined by the user. By using sliders to control the lattice parameters and the angles between axes, the diffraction pattern updates instantly, allowing the user to see the effect of each parameter on the pattern.
+It allows the inclusion of up to 10 atoms in the unit cell, with control over their type and position. This is a great tool for teaching pXRD! Feel free to use it, and we would appreciate it if you cite it: (https://doi.org/10.1107/S1600576725001220) :D
+For now, it is freely available in the Journal of Applied Crystallography: https://journals.iucr.org/j/issues/2025/02/00/dv5023/dv5023.pdf

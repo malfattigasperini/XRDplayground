@@ -1,17 +1,3 @@
-# Copyright 2024 CNPEM
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-#     http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import sys, os
 from PyQt5.QtCore import (Qt, pyqtSignal, QRect, QEvent)
 from PyQt5.QtGui import QFont
@@ -1028,36 +1014,113 @@ class Structures():
                             'Si', 
                             'Diamond', 
                             'NaCl', 
-                            'CsCl']
+                            'CsCl',
+                            'Cu',
+                            'alpha-Fe',
+                            'Zn',
+                            'Mg',
+                            'Graphite',
+                            'Rutile',
+                            'Quartz',
+                            'BaTiO3-cubic',
+                            'BaTiO3-tetragonal',
+                            'BaTiO3-orthorhombic',
+                            'CuO'
+                            
+                           
+                            ]
         self.structures_baseAtoms = {           'LaB6':['La','B','B','B','B','B','B'],
                                                 'Si':['Si','Si','Si','Si','Si','Si','Si','Si'],
                                                 'Diamond':['C','C','C','C','C','C','C','C'],
                                                 'NaCl':['Cl','Cl','Cl','Cl', 'Na','Na','Na','Na'],
-                                                'CsCl':['Cl', 'Cs']
+                                                'CsCl':['Cl', 'Cs'],
+                                                'Cu':['Cu', 'Cu', 'Cu', 'Cu'],
+                                                'alpha-Fe':['Fe', 'Fe'],
+                                                'Zn':['Zn', 'Zn'],
+                                                'Mg':['Mg', 'Mg'],
+                                                'Graphite':['C', 'C', 'C', 'C'],
+                                                'Rutile':['Ti', 'Ti', 'O', 'O', 'O', 'O'],
+                                                'Quartz':['Si', 'Si', 'Si', 'O', 'O', 'O', 'O', 'O', 'O'],
+                                                'BaTiO3-cubic':['Ba', 'Ti', 'O', 'O', 'O'],
+                                                'BaTiO3-tetragonal':['Ba', 'Ti', 'O', 'O', 'O'],
+                                                'BaTiO3-orthorhombic':['Ba', 'Ba', 'Ti', 'Ti', 'O', 'O', 'O', 'O', 'O', 'O'],
+                                                'CuO':['Cu', 'Cu', 'Cu', 'Cu', 'O', 'O', 'O', 'O']
+                                                
+                                                
                                                 }
         self.structures_baseAtoms_positions = { 'LaB6':[[0,0,0],[0.1996, 0.5, 0.5],[0.5, 0.5, 0.8004],[0.5, 0.5, 0.1996],[0.5, 0.1996, 0.5],[0.5, 0.8004, 0.5],[0.8004, 0.5, 0.5]],
                                                 'Si':[[0,0,0],[0.5, 0.5, 0],[0, 0.5, 0.5],[0.5, 0, 0.5],[0.25, 0.25, 0.25],[0.75, 0.75, 0.25],[0.75, 0.25, 0.75],[0.25, 0.75, 0.75]],
                                                 'Diamond':[[0,0,0],[0.5, 0.5, 0],[0, 0.5, 0.5],[0.5, 0, 0.5],[0.25, 0.25, 0.25],[0.75, 0.75, 0.25],[0.75, 0.25, 0.75],[0.25, 0.75, 0.75]],
                                                 'NaCl':[[0, 0, 0],[0.5, 0.5, 0],[0.5, 0, 0.5],[0, 0.5, 0.5], [0.5,0.5,0.5],[0.5, 0, 0],[0, 0.5, 0],[0, 0, 0.5]],
-                                                'CsCl':[[0,0,0], [0.5,0.5,0.5]]
+                                                'CsCl':[[0,0,0], [0.5,0.5,0.5]],
+                                                'Cu':[[0, 0, 0], [0.5, 0 ,0.5], [0, 0.5, 0.5], [0.5, 0.5, 0]],
+                                                'alpha-Fe':[[0, 0, 0], [0.5, 0.5, 0.5]],
+                                                'Zn':[[0, 0, 0], [0.333, 0.666, 0.5]],
+                                                'Mg':[[0, 0, 0], [0.333, 0.666, 0.5]],
+                                                'Graphite':[[0, 0, 0], [0.666, 0.333, 0.5], [0, 0, 0.5], [0.333, 0.666, 0]],
+                                                'Rutile':[[0, 0, 0], [0.5, 0.5, 0.5], [0.305, 0.305, 0], [0.695, 0.695, 0], [0.805, 0.895, 0.5], [0.195, 0.195, 0.5]],
+                                                'Quartz':[[0, 0, 0], [0.5277, 0.4723, 0.0004], [0.0554, 0.5277, 0.3334], [0.9437, 0.2658, 0.1215], [0.2619, 0.1502, 0.4549], [0.3775, 0.584, 0.4545], [0.7935, 0.416, 0.5453], [0.6779, 0.7342, 0.8783], [0.1117, 0.8498, 0.2119]],
+                                                'BaTiO3-cubic':[[0, 0, 0], [0.5, 0.5, 0.5], [0.5, 0.5, 0], [0, 0.5, 0.5], [0.5, 0, 0.5]],
+                                                'BaTiO3-tetragonal':[[0, 0, 0], [0.5, 0.5, 0.51], [0.5, 0.5, 0.02], [0, 0.5, 0.51], [0.5, 0, 0.51]],
+                                                'BaTiO3-orthorhombic':[[0, 0, 0], [0.0, 0.5, 0.5], [0.5, 0, 0.51], [0.5, 0.5, 0.01], 
+                                                                        [0, 0, 0.48], [0, 0.5, 0.98], [0.5, 0.255, 0.233], [0.5, 0.745, 0.233], [0.5, 0.755, 0.733], [0.5, 0.245, 0.733]],
+                                                'CuO':[[0, 0, 0],[0.5, 0, 0.5],[0.5, 0.5, 0],[0, 0.5, 0.5],[0.75, 0.166, 0.25],[0.25, 0.666, 0.25],[0.75, 0.334, 0.75],[0.25, 0.73, 0.75]]
+                                                
                                                 }
         self.structures_baseAtoms_sizes = {     'LaB6':[400, 150, 150, 150, 150, 150, 150],
                                                 'Si':[300,300,300,300,300,300,300,300],
                                                 'Diamond':[150,150,150,150,150,150,150,150],
                                                 'NaCl':[300,300,300,300,200,200,200,200],
-                                                'CsCl':[300, 400]
+                                                'CsCl':[300, 400],
+                                                'Cu':[230, 230, 230, 230],
+                                                'alpha-Fe':[180, 180],
+                                                'Zn':[200, 200],
+                                                'Mg':[160, 160],
+                                                'Graphite':[100, 100, 100, 100],
+                                                'Rutile':[190, 190, 130, 130, 130, 130],
+                                                'Quartz':[200, 200, 200, 130, 130, 130, 130, 130, 130],
+                                                'BaTiO3-cubic':[330, 190, 130, 130, 130],
+                                                'BaTiO3-tetragonal':[330, 190, 130, 130, 130],
+                                                'BaTiO3-orthorhombic':[330, 330, 190, 190, 130, 130, 130, 130, 130, 130],
+                                                'CuO':[230, 230, 230, 230, 130, 130, 130, 130]
+                                                
                                                 }
         self.structures_lattice_parameters = {  'LaB6':[4.155, 4.155, 4.155, 90, 90, 90],
                                                 'Si':[5.43,5.43,5.43,90,90,90],
                                                 'NaCl':[5.63,5.63,5.63,90,90,90],
-                                                'Diamond':[3.56,3.56,3.56,90,90,90],
+                                                'Diamond':[3.5667,3.5667,3.5667,90,90,90],
                                                 'CsCl':[4.11,4.11,4.11,90,90,90],
+                                                'Cu':[3.60, 3.60, 3.60, 90, 90, 90],
+                                                'alpha-Fe':[2.87, 2.87, 2.87, 90, 90, 90],
+                                                'Zn':[2.66, 2.66, 4.94, 90, 90, 120],
+                                                'Mg':[3.21, 3.21, 5.21, 90, 90, 120],
+                                                'Graphite':[2.46, 2.46, 6.71, 90, 90, 120],
+                                                'Rutile':[4.592, 4.592, 2.957, 90, 90, 90],
+                                                'Quartz':[4.914, 4.914, 5.406, 90, 90, 120],
+                                                'BaTiO3-cubic':[4.01, 4.01, 4.01, 90, 90, 90],
+                                                'BaTiO3-tetragonal':[3.99, 3.99, 4.03, 90, 90, 90],
+                                                'BaTiO3-orthorhombic':[3.99, 5.67, 5.69, 90, 90, 90],
+                                                'CuO':[4.69, 3.42 , 5.13 , 90, 99.54, 90]
+                                                
                                                 }
         self.structures_colors = {              'LaB6':['#ffaaaa','#00dd55','#00dd55','#00dd55','#00dd55','#00dd55','#00dd55'],
                                                 'Si':['#8888dd','#8888dd','#8888dd','#8888dd','#8888dd','#8888dd','#8888dd','#8888dd'],
                                                 'Diamond':['#88dd88','#88dd88','#88dd88','#88dd88','#88dd88','#88dd88','#88dd88','#88dd88'],
                                                 'NaCl':['#bbbb88','#bbbb88','#bbbb88','#bbbb88','#77aadd','#77aadd','#77aadd','#77aadd'],
-                                                'CsCl':['#ffddaa','#77aadd']}
+                                                'CsCl':['#ffddaa','#77aadd'],
+                                                'Cu':['#B87333', '#B87333', '#B87333', '#B87333'],
+                                                'alpha-Fe':['#A8A9AD', '#A8A9AD'],
+                                                'Zn':['#7F8C8D', '#7F8C8D'],
+                                                'Mg':['#B8BCC0', '#B8BCC0'],
+                                                'Graphite':['#4B4B4B', '#4B4B4B', '#4B4B4B', '#4B4B4B'],
+                                                'Rutile':['#B4B4B4', '#B4B4B4', '#FF6347', '#FF6347', '#FF6347', '#FF6347'],
+                                                'Quartz':['#A9A9A9', '#A9A9A9', '#A9A9A9', '#FF6347', '#FF6347', '#FF6347', '#FF6347', '#FF6347', '#FF6347'],
+                                                'BaTiO3-cubic':['#B0C4DE', '#C0C0C0', '#FF6347', '#FF6347', '#FF6347'],
+                                                'BaTiO3-tetragonal':['#B0C4DE', '#C0C0C0', '#FF6347', '#FF6347', '#FF6347'],
+                                                'BaTiO3-orthorhombic':['#B0C4DE', '#B0C4DE', '#C0C0C0', '#C0C0C0', '#FF6347', '#FF6347', '#FF6347', '#FF6347', '#FF6347', '#FF6347'],
+                                                'CuO':['#B87333', '#B87333', '#B87333', '#B87333', '#FF6347', '#FF6347', '#FF6347', '#FF6347']
+                                                
+                                                }
         
     def getRandom(self):
         class Structure():
